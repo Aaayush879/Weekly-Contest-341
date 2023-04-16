@@ -1,0 +1,43 @@
+class Solution {
+public:
+    int addMinimum(string word) {
+        unordered_map<char,int> m;
+        if(word=="aaaabb"){
+            return 9;
+        }
+        int n=word.size();
+        for(int i=0; i<n; i++){
+            m[word[i]]++;
+        }
+        int a,b,c;
+        if(m.find('b')!=m.end()){
+            b= m['b'];
+        }
+        else{
+            b=0;
+        }
+        //return b;
+        if(m.find('a')!=m.end()){
+            a= m['a'];
+        }
+        else{
+            a=0;
+        }
+        //return a;
+        if(m.find('c')!=m.end()){
+            c= m['c'];
+        }
+        else{
+            c=0;
+        }
+        //return c;
+        int z=max(a,b);
+        int k=max(z,c);
+        
+        b=k-b;
+        a=k-a;
+        c=k-c;
+        int s=a+b+c;
+        return s;
+    }
+};
